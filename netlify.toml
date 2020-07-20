@@ -8,3 +8,5 @@
   to = "/404"
   status = 404
 
+[context.production]
+  PHP_VERSION = "7.4"

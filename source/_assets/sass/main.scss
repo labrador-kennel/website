@@ -1,0 +1,147 @@
+$brown: #733D17;
+$cream: #fffaf0;
+$primary: $brown;
+$menu-item-hover-color: #ffffff;
+$menu-item-hover-background-color: $brown;
+
+@import '~bulma';
+@import './highlight.css';
+
+body {
+  background-color: $cream;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding-bottom: 4rem;
+  flex-grow: 1;
+}
+
+pre {
+  background-color: #F0F0F0;
+}
+
+footer.footer {
+  background-color: $cream;
+  border-top: 1px solid $brown;
+}
+
+.navbar-brand .navbar-item--title .navbar-item--title-site-name {
+  @extend .is-size-3;
+  margin-left: 1rem;
+}
+
+aside.menu {
+  margin-top: 1rem;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+}
+
+.hero .hero-titles {
+  flex-grow: 1;
+}
+
+.hero .hero-image {
+  width: 256px;
+  height: 256px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.lk-home--package-list {
+  @extend .columns;
+  @extend .is-multiline;
+  @extend .is-centered;
+
+  .lk-home--package-list-package {
+    @extend .column;
+    @extend .is-one-third;
+  }
+
+  .lk-home--package-list-package .card-header {
+    background-color: $primary;
+  }
+
+  .lk-home--package-list-package .card-header-title {
+    color: $white;
+  }
+
+  .lk-home--package-list-package .card-footer-item {
+    font-weight: bold;
+  }
+
+  .lk-home--package-list-package .card-footer-item ion-icon {
+    margin-right: 0.5rem;
+  }
+}
+
+.lk-docs--article {
+  ul li {
+    list-style: none;
+  }
+
+  ul li:before {
+    content: '';
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background-image: url('/assets/img/paw-outline.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: -3px;
+    margin-right: 0.25rem;
+  }
+}
+
+h1 {
+  @extend .title;
+  margin-top: 1rem;
+  margin-bottom: 1rem !important;
+}
+
+h2 {
+  @extend .subtitle;
+  @extend .is-size-3;
+  margin-bottom: 0.5rem !important;
+}
+
+h3 {
+  @extend .subtitle;
+  @extend .is-size-4;
+  margin-bottom: 0.5rem !important;
+}
+
+h4 {
+  @extend .subtitle;
+  @extend .is-size-5;
+  margin-bottom: 0.5rem !important;
+}
+
+ol, ul {
+  list-style-position: inside;
+}
+
+p, ol, ul, pre {
+  @extend .content;
+}
+
+blockquote {
+  @extend .notification;
+  @extend .is-info;
+  @extend .is-light;
+}
+
+pre {
+  padding: 0.5rem;
+}
+
+.built-by-tagline ion-icon {
+  color: $red;
+}

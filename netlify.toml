@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/core"
+  to = "/docs/core"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
+

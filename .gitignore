@@ -1,0 +1,6 @@
+/build_*/
+/node_modules/
+/tmp/
+/vendor/
+/source/assets/build/
+/config/*-nav.json

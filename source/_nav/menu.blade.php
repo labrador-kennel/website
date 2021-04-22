@@ -2,7 +2,7 @@
     <ul class="menu-list">
         <li><a href="{{$readMeUrl}}" class="{{ $page->isActive($readMeUrl) ? 'is-active' : '' }}">README</a></li>
     </ul>
-    @if (count($tutorials) > 0)
+    @if (isset($tutorials) && count($tutorials) > 0)
     <p class="menu-label">Tutorials</p>
     <ul class="menu-list">
         @foreach ($tutorials as $tutorial)
@@ -11,7 +11,7 @@
     </ul>
     @endif
 
-    @if (count($howTos) > 0)
+    @if (isset($howTos) && count($howTos) > 0)
     <p class="menu-label">How Tos</p>
     <ul class="menu-list">
         @foreach ($howTos as $howTo)
@@ -20,7 +20,7 @@
     </ul>
     @endif
 
-    @if (count($references) > 0)
+    @if (isset($references) && count($references) > 0)
     <p class="menu-label">References</p>
     <ul class="menu-list">
         @foreach ($references as $reference)

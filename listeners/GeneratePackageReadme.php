@@ -9,10 +9,12 @@ class GeneratePackageReadme {
 
     private Client $githubApi;
     private string $packageName;
+    private string $reference;
 
-    public function __construct(Client $client, string $packageName) {
+    public function __construct(Client $client, string $packageName, string $reference = 'main') {
         $this->githubApi = $client;
         $this->packageName = $packageName;
+        $this->reference = $reference;
     }
 
     public function __invoke(Jigsaw $jigsaw) : void {
@@ -23,7 +25,7 @@ class GeneratePackageReadme {
     private function getReadMeContent() {
         $readme = $this->githubApi->api('repo')
             ->contents()
-            ->readme('labrador-kennel', $this->packageName);
+            ->readme('labrador-kennel', $this->packageName, $this->reference);
 
         $packageName = $this->packageName;
         $decodedReadmeContent = base64_decode($readme['content']);

@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <figure class="image hero-image">
-                    <img src="/assets/img/logo.png"  />
+                    <img src="/assets/img/logo.svg"  />
                 </figure>
             </div>
         </div>

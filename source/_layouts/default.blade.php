@@ -19,7 +19,7 @@
         <title>{{ $page->siteName }}{{ $page->title ? ' | ' . $page->title : '' }}</title>
 
         <link rel="home" href="{{ $page->baseUrl }}">
-        <link rel="icon" href="/assets/img/logo.png">
+        <link rel="icon" href="/assets/img/logo.svg">
 
         @stack('meta')
 
@@ -37,7 +37,7 @@
                     <a class="navbar-item navbar-item--title" href="/">
                         <img src="/assets/img/logo-white.png" />
                         <span class="navbar-item--title-site-name">
-                            labrador-kennel.io
+                            Labrador Kennel
                         </span>
                     </a>
                 </div>
@@ -57,9 +57,6 @@
             <div class="content has-text-centered">
                 <div class="built-by-tagline">
                     Built with <ion-icon name="heart"></ion-icon> and <img src="/assets/img/amp-logo.png" alt="Amp logo" height="16px" width="16px" /> by <a href="https://cspray.io">Charles Sprayberry</a>
-                </div>
-                <div class="logo-disclaimer">
-                    Organization logo by <a href="http://www.freepik.com">Freepik</a> from <a href="http://www.flaticon.com">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
                 </div>
             </div>
         </footer>

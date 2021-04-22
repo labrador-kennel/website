@@ -12,11 +12,13 @@ class GeneratePackageDocs {
     private Client $githubApi;
     private string $packageName;
     private JigsawMarkdownParser $markdownParser;
+    private string $reference;
 
-    public function __construct(Client $client, string $packageName, JigsawMarkdownParser $markdownParser) {
+    public function __construct(Client $client, string $packageName, JigsawMarkdownParser $markdownParser, string $reference = 'main') {
         $this->githubApi = $client;
         $this->packageName = $packageName;
         $this->markdownParser = $markdownParser;
+        $this->reference = $reference;
     }
 
     public function __invoke(Jigsaw $jigsaw) : void {
@@ -25,18 +27,18 @@ class GeneratePackageDocs {
         $navConfig = [];
         foreach ($docDirs as $docDir) {
             $navConfig[s($docDir)->camelize()->__toString()] = [];
-            $docExists = $this->githubApi->api('repo')->contents()->exists('labrador-kennel', $this->packageName, sprintf('/docs/%s', $docDir));
+            $docExists = $this->githubApi->api('repo')->contents()->exists('labrador-kennel', $this->packageName, sprintf('/docs/%s', $docDir), $this->reference);
             if (!$docExists) {
                 continue;
             }
 
-            $docs = $this->githubApi->api('repo')->contents()->show('labrador-kennel', $this->packageName, sprintf('/docs/%s', $docDir));
+            $docs = $this->githubApi->api('repo')->contents()->show('labrador-kennel', $this->packageName, sprintf('/docs/%s', $docDir), $this->reference);
             $docIndexInfo = [];
             foreach ($docs as $doc) {
                 $pattern = '#^[0-9]{2}\-#';
                 $name = preg_replace($pattern, '', $doc['name']);
                 $path = sprintf('docs/%s/%s/%s', $this->packageName, $docDir, $name);
-                $docContents = $this->githubApi->api('repo')->contents()->show('labrador-kennel', $this->packageName, $doc['path']);
+                $docContents = $this->githubApi->api('repo')->contents()->show('labrador-kennel', $this->packageName, $doc['path'], $this->reference);
                 $content = explode(PHP_EOL, base64_decode($docContents['content']));
 
                 $title = trim($content[0], '# ');

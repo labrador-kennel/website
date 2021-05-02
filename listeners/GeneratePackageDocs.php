@@ -119,6 +119,10 @@ HTML;
             $indexPath = sprintf('docs/%s/%s/index.blade.php', $this->packageName, $docDir);
             $jigsaw->writeSourceFile($indexPath, $indexContent);
         }
+        $configDir = sprintf('%s/config', dirname(__DIR__));
+        if (!is_dir($configDir)) {
+            mkdir($configDir);
+        }
 
         $configPath = sprintf('%s/config/%s-nav.json', dirname(__DIR__), $this->packageName);
         $content = json_encode($navConfig);

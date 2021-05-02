@@ -35,10 +35,10 @@ $markdownParser = $container->make(\TightenCo\Jigsaw\Parsers\JigsawMarkdownParse
 
 $customGenerators = [
     new GeneratePackageReadme($githubApi, 'core', '3.1.0'),
-    new GeneratePackageReadme($githubApi, 'http-cors', '0.3.0'),
+    new GeneratePackageReadme($githubApi, 'http-cors', 'main'),
     new GeneratePackageReadme($githubApi, 'async-event', '2.3.0'),
     new GeneratePackageDocs($githubApi, 'core', $markdownParser, '3.1.0'),
-    new GeneratePackageDocs($githubApi, 'http-cors', $markdownParser, '0.3.0'),
+    new GeneratePackageDocs($githubApi, 'http-cors', $markdownParser, 'main'),
     new GeneratePackageDocs($githubApi, 'async-event', $markdownParser, '2.3.0')
 ];
 

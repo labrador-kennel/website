@@ -3,3 +3,4 @@
 /tmp/
 /vendor/
 /source/assets/build/
+/config/*-nav.json

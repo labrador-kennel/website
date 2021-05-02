@@ -34,12 +34,12 @@ $githubApi->authenticate(getenv('LABRADOR_KENNEL_SITE_TOKEN'), null, \Github\Cli
 $markdownParser = $container->make(\TightenCo\Jigsaw\Parsers\JigsawMarkdownParser::class);
 
 $customGenerators = [
-    new GeneratePackageReadme($githubApi, 'core', 'f1c9cdc64b48e51298fecced06de341c1fe605e0'),
-    new GeneratePackageReadme($githubApi, 'http-cors'),
-    new GeneratePackageReadme($githubApi, 'async-event'),
-    new GeneratePackageDocs($githubApi, 'core', $markdownParser, 'f1c9cdc64b48e51298fecced06de341c1fe605e0'),
-    new GeneratePackageDocs($githubApi, 'http-cors', $markdownParser),
-    new GeneratePackageDocs($githubApi, 'async-event', $markdownParser)
+    new GeneratePackageReadme($githubApi, 'core', '3.1.0'),
+    new GeneratePackageReadme($githubApi, 'http-cors', '0.3.0'),
+    new GeneratePackageReadme($githubApi, 'async-event', '2.3.0'),
+    new GeneratePackageDocs($githubApi, 'core', $markdownParser, '3.1.0'),
+    new GeneratePackageDocs($githubApi, 'http-cors', $markdownParser, '0.3.0'),
+    new GeneratePackageDocs($githubApi, 'async-event', $markdownParser, '2.3.0')
 ];
 
 $events->beforeBuild(function(Jigsaw $jigsaw) use($customGenerators) {

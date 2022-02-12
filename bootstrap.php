@@ -30,7 +30,7 @@ $pool->setFolder('/tmp/cache');
 
 $githubApi = new \Github\Client();
 $githubApi->addCache($pool);
-$githubApi->authenticate(getenv('LABRADOR_KENNEL_SITE_TOKEN'), null, \Github\Client::AUTH_HTTP_TOKEN);
+$githubApi->authenticate(getenv('LABRADOR_KENNEL_SITE_TOKEN'), null, \Github\AuthMethod::ACCESS_TOKEN);
 $markdownParser = $container->make(\TightenCo\Jigsaw\Parsers\JigsawMarkdownParser::class);
 
 $customGenerators = [
